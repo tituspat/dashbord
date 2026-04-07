@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 30% 7%;
+    --foreground: 210 17% 95%;
+    --card: 222 22% 10%;
+    --card-foreground: 210 17% 95%;
+    --popover: 222 28% 8%;
+    --popover-foreground: 210 17% 95%;
+    --primary: 210 20% 96%;
+    --primary-foreground: 222 29% 9%;
+    --secondary: 223 16% 15%;
+    --secondary-foreground: 210 18% 92%;
+    --muted: 223 15% 14%;
+    --muted-foreground: 217 11% 64%;
+    --accent: 223 14% 18%;
+    --accent-foreground: 210 18% 95%;
+    --destructive: 0 63% 49%;
+    --destructive-foreground: 210 20% 96%;
+    --border: 220 13% 21%;
+    --input: 220 13% 18%;
+    --ring: 191 84% 64%;
+    --radius: 1.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+    background-image:
+      radial-gradient(circle at 12% 12%, rgba(67, 206, 255, 0.14), transparent 26%), radial-gradient(circle at 82% 4%, rgba(255, 255, 255, 0.07), transparent 18%),
+      radial-gradient(circle at 50% 100%, rgba(67, 206, 255, 0.06), transparent 34%), linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0)), linear-gradient(180deg, #080b11, #090d14 55%, #080b11);
+    min-height: 100vh;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), transparent 92%);
+    opacity: 0.22;
+  }
+
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(circle at 20% 0%, rgba(67, 206, 255, 0.08), transparent 28%), radial-gradient(circle at 100% 12%, rgba(255, 255, 255, 0.06), transparent 18%);
+  }
+
+  ::selection {
+    background: rgba(67, 206, 255, 0.24);
+    color: hsl(var(--foreground));
+  }
+}
+
+@layer components {
+  .surface-panel {
+    @apply border border-white/10 bg-white/[0.04] backdrop-blur-xl shadow-[0_28px_120px_rgba(0,0,0,0.42)];
+  }
+
+  .surface-soft {
+    @apply border border-white/10 bg-white/[0.03] backdrop-blur-md;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
