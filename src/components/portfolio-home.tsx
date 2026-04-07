@@ -102,14 +102,14 @@ export function PortfolioHome({ content }: PortfolioHomeProps) {
         />
       </main>
 
-      <footer className="border-t border-white/10 px-4 py-8 sm:px-6 lg:px-8">
+      {/* <footer className="border-t border-white/10 px-4 py-8 sm:px-6 lg:px-8">
         <div className="mx-auto flex max-w-6xl flex-col gap-3 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>Built with Next.js, Tailwind CSS, and shadcn-style components.</p>
           <p className="font-sans text-[11px] font-medium uppercase tracking-[0.16em] text-foreground/70">
             Compact by default. Deeper on demand.
           </p>
         </div>
-      </footer>
+      </footer> */}
 
       <ProjectDetailOverlay project={activeProject} onClose={closeProject} />
     </div>
@@ -130,8 +130,8 @@ function HeroSection({
 }: HeroSectionProps) {
   return (
     <SectionShell className="pb-8 pt-12 sm:pt-20">
-      <div className="grid gap-12 lg:grid-cols-[1.25fr_0.75fr] lg:items-start">
-        <div className="space-y-10">
+      <div className="grid gap-10">
+        <div className="max-w-4xl space-y-10">
           <div className="space-y-6">
             <p className="font-sans text-xs font-medium uppercase tracking-[0.18em] text-muted-foreground">
               {eyebrow}
@@ -160,7 +160,7 @@ function HeroSection({
           </div>
         </div>
 
-        <div className="space-y-5">
+        {/* <div className="space-y-5">
           <Card className="surface-panel overflow-hidden">
             <CardContent className="space-y-6 p-6">
               <div className="space-y-2">
@@ -195,7 +195,7 @@ function HeroSection({
             </p>
             <p className="mt-3 text-sm leading-7 text-foreground/82">{availability}</p>
           </div>
-        </div>
+        </div> */}
       </div>
     </SectionShell>
   );
@@ -375,7 +375,7 @@ function ResumeSection({
           <p className="max-w-2xl text-sm leading-7 text-foreground/68">{note}</p>
 
           <div className="flex flex-col gap-3 sm:flex-row">
-            {viewUrl ? (
+            {/* {viewUrl ? (
               <Button asChild size="lg" variant="outline" className="rounded-full px-6">
                 <a href={viewUrl} target="_blank" rel="noreferrer">
                   View Resume
@@ -386,11 +386,11 @@ function ResumeSection({
               <Button size="lg" variant="outline" className="rounded-full px-6" disabled>
                 View Resume
               </Button>
-            )}
+            )} */}
 
             {downloadUrl ? (
               <Button asChild size="lg" className="rounded-full px-6">
-                <a href={downloadUrl} download>
+                <a href={downloadUrl} target="_blank" download>
                   Download Resume
                   <Download className="ml-2 h-4 w-4" />
                 </a>
@@ -418,25 +418,25 @@ function ContactSection({
 }) {
   return (
     <SectionShell id="contact">
-      <div className="grid gap-5 lg:grid-cols-[1fr_0.85fr]">
-        <div className="rounded-[2rem] border border-cyan-300/15 bg-gradient-to-br from-cyan-300/[0.10] via-white/[0.04] to-white/[0.02] p-6 text-foreground shadow-[0_24px_90px_rgba(0,0,0,0.36)] sm:p-8">
+      <div className="grid gap-4 sm:gap-5 md:grid-cols-[1fr_0.85fr]">
+        <div className="min-w-0 rounded-[2rem] border border-cyan-300/15 bg-gradient-to-br from-cyan-300/[0.10] via-white/[0.04] to-white/[0.02] p-4 text-foreground shadow-[0_24px_90px_rgba(0,0,0,0.36)] sm:p-6">
           <div className="space-y-5">
             <p className="font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-cyan-200/72">Contact</p>
-            <h2 className="font-display text-5xl leading-none tracking-tight sm:text-6xl">
+            <h2 className="text-balance font-display text-3xl leading-[1.05] tracking-tight sm:text-4xl lg:text-5xl">
               If there&apos;s a role to shape, let&apos;s talk.
             </h2>
-            <p className="max-w-2xl text-base leading-7 text-foreground/78">
+            <p className="max-w-2xl text-sm leading-6 text-foreground/78 sm:text-base sm:leading-7">
               The site is built to make the first decision easier. If you want the deeper discussion on a role,
               product, or case study, email is the fastest path.
             </p>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <Button asChild size="lg" className="rounded-full px-6">
+            <div className="flex flex-col gap-2 sm:flex-row sm:gap-3">
+              <Button asChild size="lg" className="w-full rounded-full px-6 sm:w-auto">
                 <a href={`mailto:${email}`}>
                   Email Me
                   <Mail className="ml-2 h-4 w-4" />
                 </a>
               </Button>
-              <Button asChild size="lg" variant="outline" className="rounded-full px-6">
+              <Button asChild size="lg" variant="outline" className="w-full rounded-full px-6 sm:w-auto">
                 <a href={linkedInUrl} target="_blank" rel="noreferrer">
                   LinkedIn
                   <MoveRight className="ml-2 h-4 w-4" />
@@ -446,31 +446,31 @@ function ContactSection({
           </div>
         </div>
 
-        <div className="grid gap-5">
+        <div className="grid gap-4 sm:gap-5">
           <Card className="surface-panel">
-            <CardContent className="space-y-4 p-6">
+            <CardContent className="space-y-3 p-4 sm:space-y-4 sm:p-6">
               <p className="font-sans text-[10px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
                 Primary contact
               </p>
               <a
                 href={`mailto:${email}`}
-                className="font-display text-4xl leading-none text-foreground transition-colors hover:text-cyan-200"
+                className="break-all font-display text-xl leading-[1.1] text-foreground transition-colors hover:text-cyan-200 sm:break-normal sm:text-2xl lg:text-3xl"
               >
                 {email}
               </a>
-              <p className="text-sm leading-7 text-foreground/68">
+              <p className="text-sm leading-6 text-foreground/68 sm:leading-7">
                 Best for role conversations, portfolio walkthroughs, or requests for more detailed artifacts.
               </p>
             </CardContent>
           </Card>
 
           <Card className="surface-panel">
-            <CardContent className="space-y-4 p-6">
+            <CardContent className="space-y-3 p-4 sm:space-y-4 sm:p-6">
               <div className="flex items-center gap-2 text-muted-foreground">
                 <MapPin className="h-4 w-4" />
                 <p className="font-sans text-[10px] font-medium uppercase tracking-[0.18em]">{location}</p>
               </div>
-              <p className="text-sm leading-7 text-foreground/85">
+              <p className="text-sm leading-6 text-foreground/85 sm:leading-7">
                 Built as a static portfolio so it stays fast, easy to maintain, and ready to send with any application.
               </p>
             </CardContent>
